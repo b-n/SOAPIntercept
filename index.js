@@ -3,9 +3,9 @@ var app = express();
 var fs = require('fs');
 
 app.set('port', (process.env.PORT || 5000));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname));
 app.use(express.static(__dirname + '/files'));
-app.use (function(req, res, next) {
+app.use(function(req, res, next) {
   var data='';
   req.setEncoding('utf8');
   req.on('data', function(chunk) { 
@@ -17,6 +17,8 @@ app.use (function(req, res, next) {
     next();
   });
 });
+
+
 app.all('/api/:file', function(request, response) {
   var output = 'Headers:\n' + JSON.stringify(request.headers);
   output += '\n\nBody:\n' + request.body;
