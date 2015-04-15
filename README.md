@@ -6,8 +6,9 @@ Heroku nodeJS app which takes a request to /api/&lt;request name here> and saves
 Designed to run on Heroku, so a clone, and push should work.
 
 To run locally:
-Clone
-npm install
-foreman start web
+
++ Clone
++ npm install
++ foreman start web
 
 Sorted.
